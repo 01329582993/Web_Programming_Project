@@ -1,4 +1,7 @@
 import Clock from "./components/Clock";
+import CalendarPage from "./calendar/CalendarPage";
+import Alarm from "./components/Alarm";
+import SoundPicker from "./components/SoundPicker";
 import "./App.css";
 
 function App() {
@@ -19,7 +22,15 @@ function App() {
           <li></li><li></li><li></li><li></li><li></li>
         </ul>
 
+        {/* Existing component */}
         <Clock />
+
+        {/* Calendar (new feature) */}
+        <CalendarPage />
+
+        {/* Other features */}
+        <Alarm />
+        <SoundPicker />
       </div>
     </div>
   );
