@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Clock from "./components/Clock";
 import CalendarPage from "./calendar/CalendarPage";
-import Alarm from "./components/Alarm";
+import AlarmClock from "./components/Alarm";
 import SoundPicker from "./components/SoundPicker";
 import Notes from "./pages/Notes";
 import FileUpload from "./pages/FileUpload";
 import GamesHub from "./games/GamesHub";
+import Alarm from "./pages/Alarm";
 import "./App.css";
 
 function App() {
@@ -40,7 +41,13 @@ function App() {
             className={`tab-btn ${activeTab === "calendar" ? "active" : ""}`}
             onClick={() => setActiveTab("calendar")}
           >
-            📅 Calendar & Alarm
+            📅 Calendar
+          </button>
+          <button 
+            className={`tab-btn ${activeTab === "alarms" ? "active" : ""}`}
+            onClick={() => setActiveTab("alarms")}
+          >
+            ⏰ Alarms
           </button>
           <button 
             className={`tab-btn ${activeTab === "notes" ? "active" : ""}`}
@@ -72,7 +79,8 @@ function App() {
           )}
           
           {activeTab === "calendar" && <CalendarPage />}
-          {activeTab === "calendar" && <Alarm />}
+          
+          {activeTab === "alarms" && <Alarm />}
           
           {activeTab === "notes" && <Notes />}
           
