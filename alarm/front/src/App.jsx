@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import Dashboard from "./pages/Dashboard";
 import CalendarPage from "./calendar/CalendarPage";
 import Alarm from "./pages/Alarm";
 import Notes from "./pages/Notes";
@@ -24,7 +25,8 @@ function Navigation() {
     <nav className="navbar">
       <div className="nav-brand">🕐 MurgiKlok</div>
       <div className="nav-links">
-        <Link to="/">📅 Calendar</Link>
+        <Link to="/">🏠 Home</Link>
+        <Link to="/calendar">📅 Calendar</Link>
         <Link to="/alarm">🔔 Alarm</Link>
         <Link to="/notes">📝 Notes</Link>
         <Link to="/files">📁 Files</Link>
@@ -49,6 +51,17 @@ export default function App() {
       {/* Protected routes */}
       <Route
         path="/"
+        element={
+          <ProtectedRoute>
+            <>
+              <Navigation />
+              <Dashboard />
+            </>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/calendar"
         element={
           <ProtectedRoute>
             <>
